@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Plus, Eye, MessageCircle, TrendingUp, ShoppingBag, Heart, Wallet } from "lucide-react";
+import { Plus, Eye, MessageCircle, ShoppingBag, Heart, Wallet, PackageOpen } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ListingCard } from "@/components/ListingCard";
 import { Button } from "@/components/ui/button";
-import { listings, formatNaira } from "@/lib/mock-data";
+import { listings } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({ meta: [{ title: "Dashboard — FUTO Marketplace" }] }),
@@ -11,14 +11,14 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 const stats = [
-  { label: "Active listings", value: "8", icon: ShoppingBag, change: "+2 this week" },
-  { label: "Total views", value: "1,247", icon: Eye, change: "+18% vs last week" },
-  { label: "Messages", value: "23", icon: MessageCircle, change: "5 unread" },
-  { label: "Sales completed", value: "12", icon: Wallet, change: formatNaira(285000) },
+  { label: "Active listings", value: "0", icon: ShoppingBag, change: "Post your first item" },
+  { label: "Total views", value: "0", icon: Eye, change: "—" },
+  { label: "Messages", value: "0", icon: MessageCircle, change: "No messages yet" },
+  { label: "Sales completed", value: "0", icon: Wallet, change: "—" },
 ];
 
 function DashboardPage() {
-  const myListings = listings.slice(0, 4);
+  const myListings = listings; // empty until backend is connected
 
   return (
     <SiteLayout>
@@ -26,7 +26,7 @@ function DashboardPage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-sm text-muted-foreground">Welcome back,</p>
-            <h1 className="text-3xl font-bold tracking-tight">Chioma 👋</h1>
+            <h1 className="text-3xl font-bold tracking-tight">Student 👋</h1>
           </div>
           <Button variant="hero" asChild>
             <Link to="/sell"><Plus className="h-4 w-4" /> New listing</Link>
@@ -41,11 +41,10 @@ function DashboardPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <TrendingUp className="h-4 w-4 text-success" />
               </div>
               <p className="mt-4 text-3xl font-bold tracking-tight">{s.value}</p>
               <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
-              <p className="mt-2 text-xs font-medium text-success">{s.change}</p>
+              <p className="mt-2 text-xs font-medium text-muted-foreground">{s.change}</p>
             </div>
           ))}
         </div>
@@ -55,15 +54,15 @@ function DashboardPage() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm font-medium opacity-90">Free tier</p>
-              <h3 className="mt-1 text-xl font-bold">2 of 3 free sales remaining</h3>
-              <p className="mt-1 text-sm opacity-90">Subscribe to unlock unlimited listings.</p>
+              <h3 className="mt-1 text-xl font-bold">3 of 3 free sales available</h3>
+              <p className="mt-1 text-sm opacity-90">Subscribe later to unlock unlimited listings.</p>
             </div>
             <Button variant="default" className="bg-background text-primary hover:bg-background/90" asChild>
-              <Link to="/pricing">Upgrade plan</Link>
+              <Link to="/pricing">View plans</Link>
             </Button>
           </div>
           <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-background/20">
-            <div className="h-full w-2/3 rounded-full bg-background" />
+            <div className="h-full w-0 rounded-full bg-background" />
           </div>
         </div>
 
@@ -71,13 +70,26 @@ function DashboardPage() {
         <section className="mt-12">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold tracking-tight">My listings</h2>
-            <Link to="/browse" className="text-sm font-semibold text-primary hover:underline">View all</Link>
+            <Link to="/browse" className="text-sm font-semibold text-primary hover:underline">Browse marketplace</Link>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {myListings.map((l) => (
-              <ListingCard key={l.id} listing={l} />
-            ))}
-          </div>
+          {myListings.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-border bg-card p-16 text-center shadow-soft">
+              <PackageOpen className="mx-auto h-12 w-12 text-muted-foreground" />
+              <p className="mt-4 text-lg font-semibold">You haven't posted anything yet</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Post your first listing and reach thousands of FUTO students.
+              </p>
+              <Button variant="hero" className="mt-6" asChild>
+                <Link to="/sell"><Plus className="h-4 w-4" /> Post your first listing</Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {myListings.map((l) => (
+                <ListingCard key={l.id} listing={l} />
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Quick actions */}

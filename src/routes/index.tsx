@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search, ShieldCheck, MessageCircle, Sparkles, ArrowRight, Star,
-  TrendingUp, Users,
+  TrendingUp, Users, PackageOpen,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { Header } from "@/components/Header";
@@ -55,15 +55,15 @@ function HomePage() {
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-primary" />
-                <span><b className="text-foreground">12,400+</b> students</span>
+                <span>For verified <b className="text-foreground">FUTO students</b></span>
               </div>
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary" />
-                <span><b className="text-foreground">3,800+</b> active listings</span>
+                <span>Be the <b className="text-foreground">first</b> to list</span>
               </div>
               <div className="flex items-center gap-2">
                 <Star className="h-4 w-4 fill-warning text-warning" />
-                <span><b className="text-foreground">4.9</b> avg seller rating</span>
+                <span>Rated by <b className="text-foreground">real buyers</b></span>
               </div>
             </div>
           </div>
@@ -145,11 +145,24 @@ function HomePage() {
             </Link>
           </Button>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
-          ))}
-        </div>
+        {featured.length === 0 ? (
+          <div className="rounded-3xl border border-dashed border-border bg-card p-16 text-center shadow-soft">
+            <PackageOpen className="mx-auto h-12 w-12 text-muted-foreground" />
+            <p className="mt-4 text-lg font-semibold">No listings yet</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Be the first FUTO student to post something on the marketplace.
+            </p>
+            <Button variant="hero" className="mt-6" asChild>
+              <Link to="/sell">Post a listing</Link>
+            </Button>
+          </div>
+        ) : (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((listing) => (
+              <ListingCard key={listing.id} listing={listing} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* How it works */}

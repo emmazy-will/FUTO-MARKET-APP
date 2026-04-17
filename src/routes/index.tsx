@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search, ShieldCheck, MessageCircle, Sparkles, ArrowRight, Star,
-  TrendingUp, Users, BookOpen, Smartphone, Shirt, UtensilsCrossed,
+  TrendingUp, Users,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { Header } from "@/components/Header";
@@ -13,13 +13,6 @@ import { categories, listings } from "@/lib/mock-data";
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
-
-const categoryIcons: Record<string, typeof BookOpen> = {
-  "Books & Study": BookOpen,
-  Electronics: Smartphone,
-  Clothing: Shirt,
-  "Food & Drinks": UtensilsCrossed,
-};
 
 function HomePage() {
   const featured = listings.slice(0, 8);

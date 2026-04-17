@@ -61,7 +61,7 @@ function ItemPage() {
             </div>
             {item.images.length > 1 && (
               <div className="mt-3 flex gap-2 overflow-x-auto scrollbar-hide">
-                {item.images.map((img, i) => (
+                {item.images.map((img: string, i: number) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}

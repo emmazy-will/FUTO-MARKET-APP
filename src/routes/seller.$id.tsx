@@ -80,7 +80,7 @@ function SellerPage() {
           <p className="text-muted-foreground">No active listings.</p>
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((l) => (
+            {items.map((l: typeof items[number]) => (
               <ListingCard key={l.id} listing={l} />
             ))}
           </div>

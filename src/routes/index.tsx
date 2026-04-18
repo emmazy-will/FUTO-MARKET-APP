@@ -24,30 +24,30 @@ function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-soft">
         <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:py-24 lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-24 lg:px-8">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-3 py-1 text-[11px] font-semibold text-primary backdrop-blur sm:text-xs">
               <ShieldCheck className="h-3.5 w-3.5" /> Verified FUTO students only
             </span>
-            <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-5xl lg:text-6xl">
               The smart way FUTO students{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">buy & sell</span> on campus.
             </h1>
-            <p className="mt-5 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
+            <p className="mt-4 max-w-xl text-pretty text-sm text-muted-foreground sm:mt-5 sm:text-base lg:text-lg">
               Skip the noisy WhatsApp groups. Find books, gadgets, hostel essentials and more — from
               verified students you can trust.
             </p>
 
             {/* Search */}
-            <div className="mt-7 flex max-w-xl items-center gap-2 rounded-2xl border border-border bg-card p-2 shadow-card">
+            <div className="mt-6 flex max-w-xl flex-col gap-2 rounded-2xl border border-border bg-card p-2 shadow-card sm:mt-7 sm:flex-row sm:items-center">
               <div className="flex flex-1 items-center gap-2 px-3">
-                <Search className="h-5 w-5 text-muted-foreground" />
+                <Search className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <input
-                  placeholder="Search textbooks, laptops, hostel items…"
-                  className="h-11 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                  placeholder="Search textbooks, laptops…"
+                  className="h-11 w-full min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
                 />
               </div>
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
                 <Link to="/browse">Search</Link>
               </Button>
             </div>
@@ -104,17 +104,17 @@ function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight">Shop by category</h2>
-            <p className="mt-1 text-muted-foreground">Find exactly what you need on campus.</p>
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Shop by category</h2>
+            <p className="mt-1 text-sm text-muted-foreground sm:text-base">Find exactly what you need on campus.</p>
           </div>
           <Link to="/categories" className="hidden text-sm font-semibold text-primary hover:underline sm:inline">
             View all →
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
           {categories.map((cat) => (
             <Link
               key={cat.name}
@@ -130,16 +130,16 @@ function HomePage() {
       </section>
 
       {/* Featured */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
           <div>
-            <h2 className="flex items-center gap-2 text-3xl font-bold tracking-tight">
-              <TrendingUp className="h-7 w-7 text-primary" />
+            <h2 className="flex items-center gap-2 text-2xl font-bold tracking-tight sm:text-3xl">
+              <TrendingUp className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
               Trending on campus
             </h2>
-            <p className="mt-1 text-muted-foreground">What FUTO students are loving right now.</p>
+            <p className="mt-1 text-sm text-muted-foreground sm:text-base">What FUTO students are loving right now.</p>
           </div>
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild size="sm" className="sm:h-10 sm:px-5 sm:text-sm">
             <Link to="/browse">
               See all <ArrowRight className="h-4 w-4" />
             </Link>
@@ -166,18 +166,18 @@ function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="bg-gradient-soft py-20">
+      <section className="bg-gradient-soft py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
               Built around safety. Designed for students.
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
               Every account is verified. Every chat is private. Every seller is rated.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:gap-6 md:grid-cols-3 lg:mt-12">
             {[
               {
                 icon: ShieldCheck,
@@ -197,7 +197,7 @@ function HomePage() {
             ].map((feat) => (
               <div
                 key={feat.title}
-                className="rounded-2xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
+                className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
                   <feat.icon className="h-6 w-6" />
@@ -211,24 +211,24 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 text-primary-foreground shadow-elevated sm:p-14">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-8 text-primary-foreground shadow-elevated sm:p-12 lg:p-14">
           <div className="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_auto] lg:gap-8">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
                 Got something to sell? Your first 3 sales are on us.
               </h2>
-              <p className="mt-3 max-w-2xl text-primary-foreground/90">
+              <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 sm:text-base">
                 List in minutes. Reach thousands of FUTO students. Subscribe only after you've proven it works.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button size="xl" variant="default" className="bg-background text-primary hover:bg-background/90" asChild>
+              <Button size="lg" variant="default" className="bg-background text-primary hover:bg-background/90 sm:h-14 sm:px-10 sm:text-base" asChild>
                 <Link to="/sell">Start selling</Link>
               </Button>
-              <Button size="xl" variant="outline" className="border-white/30 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground" asChild>
+              <Button size="lg" variant="outline" className="border-white/30 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground sm:h-14 sm:px-10 sm:text-base" asChild>
                 <Link to="/pricing">View plans</Link>
               </Button>
             </div>

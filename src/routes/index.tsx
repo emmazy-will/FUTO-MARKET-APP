@@ -166,18 +166,18 @@ function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="bg-gradient-soft py-20">
+      <section className="bg-gradient-soft py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
               Built around safety. Designed for students.
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
               Every account is verified. Every chat is private. Every seller is rated.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:gap-6 md:grid-cols-3 lg:mt-12">
             {[
               {
                 icon: ShieldCheck,
@@ -197,7 +197,7 @@ function HomePage() {
             ].map((feat) => (
               <div
                 key={feat.title}
-                className="rounded-2xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
+                className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
                   <feat.icon className="h-6 w-6" />
@@ -211,24 +211,24 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 text-primary-foreground shadow-elevated sm:p-14">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-8 text-primary-foreground shadow-elevated sm:p-12 lg:p-14">
           <div className="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_auto] lg:gap-8">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
                 Got something to sell? Your first 3 sales are on us.
               </h2>
-              <p className="mt-3 max-w-2xl text-primary-foreground/90">
+              <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 sm:text-base">
                 List in minutes. Reach thousands of FUTO students. Subscribe only after you've proven it works.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button size="xl" variant="default" className="bg-background text-primary hover:bg-background/90" asChild>
+              <Button size="lg" variant="default" className="bg-background text-primary hover:bg-background/90 sm:h-14 sm:px-10 sm:text-base" asChild>
                 <Link to="/sell">Start selling</Link>
               </Button>
-              <Button size="xl" variant="outline" className="border-white/30 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground" asChild>
+              <Button size="lg" variant="outline" className="border-white/30 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground sm:h-14 sm:px-10 sm:text-base" asChild>
                 <Link to="/pricing">View plans</Link>
               </Button>
             </div>

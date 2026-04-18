@@ -1,4 +1,10 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
@@ -11,8 +17,15 @@ function NotFoundComponent() {
       <Header />
       <div className="flex flex-1 items-center justify-center bg-gradient-soft px-4">
         <div className="max-w-md text-center">
+          <img
+            src={faviconUrl}
+            alt="FUTO Marketplace logo"
+            className="mx-auto mb-6 h-16 w-16 rounded-xl object-contain shadow-soft"
+          />
           <h1 className="text-8xl font-bold text-primary">404</h1>
-          <h2 className="mt-4 text-2xl font-semibold text-foreground">Page not found</h2>
+          <h2 className="mt-4 text-2xl font-semibold text-foreground">
+            Page not found
+          </h2>
           <p className="mt-2 text-sm text-muted-foreground">
             The page you're looking for doesn't exist or has been moved.
           </p>
@@ -36,7 +49,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FUTO Marketplace — Buy & sell with verified FUTO students" },
+      {
+        title: "FUTO Marketplace — Buy & sell with verified FUTO students",
+      },
       {
         name: "description",
         content:
@@ -46,26 +61,38 @@ export const Route = createRootRoute({
       { property: "og:title", content: "FUTO Marketplace" },
       {
         property: "og:description",
-        content: "Buy and sell with verified FUTO students. Safe, fast and on-campus.",
+        content:
+          "Buy and sell with verified FUTO students. Safe, fast and on-campus.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+
     links: [
+      // CSS
       { rel: "stylesheet", href: appCss },
+
+      // Favicon (imported asset — works in tab bar)
       { rel: "icon", type: "image/png", href: faviconUrl },
       { rel: "apple-touch-icon", href: faviconUrl },
+
+      // Fonts
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
       },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap",
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

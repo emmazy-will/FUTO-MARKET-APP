@@ -3,6 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/favicon.png";
 
 function NotFoundComponent() {
   return (

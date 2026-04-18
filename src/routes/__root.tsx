@@ -3,6 +3,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/favicon.png";
 
 function NotFoundComponent() {
   return (
@@ -52,6 +53,8 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: faviconUrl },
+      { rel: "apple-touch-icon", href: faviconUrl },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

@@ -26,7 +26,7 @@ const plans = [
   },
   {
     name: "Basic",
-    price: "₦1,500",
+    price: "$7",
     period: "/ month",
     desc: "Perfect for active student sellers.",
     features: ["Unlimited listings", "Standard visibility", "Verified badge eligibility", "Priority support"],
@@ -36,8 +36,8 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "₦3,500",
-    period: "/ month",
+    price: "$15",
+    period: "/ year",
     desc: "For top sellers who want maximum reach.",
     features: ["Everything in Basic", "Boosted homepage placement", "Premium verified badge", "Featured in category", "Analytics dashboard"],
     cta: "Choose Premium",

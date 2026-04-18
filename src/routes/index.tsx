@@ -104,17 +104,17 @@ function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight">Shop by category</h2>
-            <p className="mt-1 text-muted-foreground">Find exactly what you need on campus.</p>
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Shop by category</h2>
+            <p className="mt-1 text-sm text-muted-foreground sm:text-base">Find exactly what you need on campus.</p>
           </div>
           <Link to="/categories" className="hidden text-sm font-semibold text-primary hover:underline sm:inline">
             View all →
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
           {categories.map((cat) => (
             <Link
               key={cat.name}
@@ -130,16 +130,16 @@ function HomePage() {
       </section>
 
       {/* Featured */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="mb-8 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
           <div>
-            <h2 className="flex items-center gap-2 text-3xl font-bold tracking-tight">
-              <TrendingUp className="h-7 w-7 text-primary" />
+            <h2 className="flex items-center gap-2 text-2xl font-bold tracking-tight sm:text-3xl">
+              <TrendingUp className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
               Trending on campus
             </h2>
-            <p className="mt-1 text-muted-foreground">What FUTO students are loving right now.</p>
+            <p className="mt-1 text-sm text-muted-foreground sm:text-base">What FUTO students are loving right now.</p>
           </div>
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild size="sm" className="sm:h-10 sm:px-5 sm:text-sm">
             <Link to="/browse">
               See all <ArrowRight className="h-4 w-4" />
             </Link>

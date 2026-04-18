@@ -1,6 +1,6 @@
 import { createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import logoUrl from "./assets/favicon.png";
+import logo from "./assets/futo.jpg";
 
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
@@ -9,7 +9,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <img
-          src={logoUrl}
+          src={logo}
           alt="FUTO Marketplace logo"
           className="mx-auto mb-6 h-16 w-16 rounded-xl object-contain shadow-soft"
         />

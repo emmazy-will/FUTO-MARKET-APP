@@ -9,7 +9,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 import appCss from "../styles.css?url";
-import faviconUrl from "../assets/favicon.png";
+import logo from "../assets/futo.jpg"
 
 function NotFoundComponent() {
   return (
@@ -18,7 +18,7 @@ function NotFoundComponent() {
       <div className="flex flex-1 items-center justify-center bg-gradient-soft px-4">
         <div className="max-w-md text-center">
           <img
-            src={faviconUrl}
+            src={logo}
             alt="FUTO Marketplace logo"
             className="mx-auto mb-6 h-16 w-16 rounded-xl object-contain shadow-soft"
           />
@@ -73,8 +73,8 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
 
       // Favicon (imported asset — works in tab bar)
-      { rel: "icon", type: "image/png", href: faviconUrl },
-      { rel: "apple-touch-icon", href: faviconUrl },
+      { rel: "icon", type: "image/png", href: logo },
+      { rel: "apple-touch-icon", href: logo },
 
       // Fonts
       {

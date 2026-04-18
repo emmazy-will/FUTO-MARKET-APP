@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { ListingCard } from "@/components/ListingCard";
 import { Button } from "@/components/ui/button";
 import { categories, listings } from "@/lib/mock-data";
+import heroimg from "../assets/futo background.jpg";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -21,68 +22,75 @@ function HomePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-soft">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-background">
         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-24 lg:px-8">
+
+          {/* LEFT */}
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-3 py-1 text-[11px] font-semibold text-primary backdrop-blur sm:text-xs">
               <ShieldCheck className="h-3.5 w-3.5" /> Verified FUTO students only
             </span>
-            <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-5xl lg:text-6xl">
+
+            <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
               The smart way FUTO students{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">buy & sell</span> on campus.
+              <span className="text-primary">
+                buy & sell
+              </span>{" "}
+              on campus.
             </h1>
-            <p className="mt-4 max-w-xl text-pretty text-sm text-muted-foreground sm:mt-5 sm:text-base lg:text-lg">
-              Skip the noisy WhatsApp groups. Find books, gadgets, hostel essentials and more — from
-              verified students you can trust.
+
+            <p className="mt-4 max-w-xl text-sm text-muted-foreground sm:text-base lg:text-lg">
+              Skip the noisy WhatsApp groups. Find books, gadgets, hostel essentials and more — from verified students you can trust.
             </p>
 
-            {/* Search */}
-            <div className="mt-6 flex max-w-xl flex-col gap-2 rounded-2xl border border-border bg-card p-2 shadow-card sm:mt-7 sm:flex-row sm:items-center">
+            {/* SEARCH */}
+            <div className="mt-6 flex max-w-xl flex-col gap-2 rounded-2xl border border-border bg-card p-2 shadow-sm sm:flex-row sm:items-center">
               <div className="flex flex-1 items-center gap-2 px-3">
-                <Search className="h-5 w-5 shrink-0 text-muted-foreground" />
+                <Search className="h-5 w-5 text-muted-foreground" />
                 <input
                   placeholder="Search textbooks, laptops…"
-                  className="h-11 w-full min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                  className="h-11 w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
                 />
               </div>
-              <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
+
+              <Button size="lg" asChild className="w-full sm:w-auto">
                 <Link to="/browse">Search</Link>
               </Button>
             </div>
 
+            {/* INFO */}
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-primary" />
                 <span>For verified <b className="text-foreground">FUTO students</b></span>
               </div>
+
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary" />
                 <span>Be the <b className="text-foreground">first</b> to list</span>
               </div>
+
               <div className="flex items-center gap-2">
-                <Star className="h-4 w-4 fill-warning text-warning" />
+                <Star className="h-4 w-4 text-yellow-500" />
                 <span>Rated by <b className="text-foreground">real buyers</b></span>
               </div>
             </div>
           </div>
 
+          {/* RIGHT */}
           <div className="relative">
-            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-primary opacity-20 blur-3xl" />
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-elevated">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg">
               <img
-                src={heroImg}
+                src={heroimg}
                 alt="FUTO students using the marketplace"
-                width={1536}
-                height={1024}
                 className="h-auto w-full"
               />
             </div>
 
-            {/* Floating cards */}
-            <div className="absolute -bottom-4 -left-4 hidden items-center gap-3 rounded-2xl border border-border bg-card/95 p-3 shadow-elevated backdrop-blur sm:flex animate-float">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            {/* FLOAT 1 */}
+            <div className="absolute -bottom-4 -left-4 hidden items-center gap-3 rounded-2xl border border-border bg-card p-3 shadow-sm sm:flex">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-black/5">
                 <ShieldCheck className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -90,8 +98,10 @@ function HomePage() {
                 <p className="text-[10px] text-muted-foreground">Matric verified</p>
               </div>
             </div>
-            <div className="absolute -top-4 right-4 hidden items-center gap-3 rounded-2xl border border-border bg-card/95 p-3 shadow-elevated backdrop-blur sm:flex">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+
+            {/* FLOAT 2 */}
+            <div className="absolute -top-4 right-4 hidden items-center gap-3 rounded-2xl border border-border bg-card p-3 shadow-sm sm:flex">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-black/5">
                 <MessageCircle className="h-5 w-5 text-primary" />
               </div>
               <div>
@@ -100,139 +110,53 @@ function HomePage() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Shop by category</h2>
-            <p className="mt-1 text-sm text-muted-foreground sm:text-base">Find exactly what you need on campus.</p>
-          </div>
-          <Link to="/categories" className="hidden text-sm font-semibold text-primary hover:underline sm:inline">
-            View all →
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+      {/* CATEGORIES */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold sm:text-3xl">Shop by category</h2>
+
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
           {categories.map((cat) => (
             <Link
               key={cat.name}
               to="/browse"
-              className="group flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center shadow-soft transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-card"
+              className="flex flex-col items-center rounded-2xl border bg-card p-4 text-center shadow-sm hover:shadow-md"
             >
-              <span className="text-3xl transition-transform group-hover:scale-110">{cat.icon}</span>
-              <span className="text-xs font-semibold leading-tight">{cat.name}</span>
+              <span className="text-3xl">{cat.icon}</span>
+              <span className="text-xs font-semibold">{cat.name}</span>
               <span className="text-[10px] text-muted-foreground">{cat.count} items</span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Featured */}
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3 sm:mb-8">
-          <div>
-            <h2 className="flex items-center gap-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              <TrendingUp className="h-6 w-6 text-primary sm:h-7 sm:w-7" />
-              Trending on campus
-            </h2>
-            <p className="mt-1 text-sm text-muted-foreground sm:text-base">What FUTO students are loving right now.</p>
-          </div>
-          <Button variant="outline" asChild size="sm" className="sm:h-10 sm:px-5 sm:text-sm">
-            <Link to="/browse">
-              See all <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        {featured.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-border bg-card p-16 text-center shadow-soft">
-            <PackageOpen className="mx-auto h-12 w-12 text-muted-foreground" />
-            <p className="mt-4 text-lg font-semibold">No listings yet</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Be the first FUTO student to post something on the marketplace.
-            </p>
-            <Button variant="hero" className="mt-6" asChild>
-              <Link to="/sell">Post a listing</Link>
-            </Button>
-          </div>
-        ) : (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((listing) => (
-              <ListingCard key={listing.id} listing={listing} />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* How it works */}
-      <section className="bg-gradient-soft py-14 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-              Built around safety. Designed for students.
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Every account is verified. Every chat is private. Every seller is rated.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 sm:gap-6 md:grid-cols-3 lg:mt-12">
-            {[
-              {
-                icon: ShieldCheck,
-                title: "Verified students only",
-                desc: "Every account is confirmed with a FUTO matric number or school email — no strangers, no scams.",
-              },
-              {
-                icon: MessageCircle,
-                title: "Private in-app chat",
-                desc: "Talk to sellers without sharing your phone number. Stay safe, stay anonymous.",
-              },
-              {
-                icon: Star,
-                title: "Trusted by ratings",
-                desc: "Sellers earn ratings only after confirmed sales. Build your reputation, the right way.",
-              },
-            ].map((feat) => (
-              <div
-                key={feat.title}
-                className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-soft">
-                  <feat.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 text-lg font-bold">{feat.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{feat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-8 text-primary-foreground shadow-elevated sm:p-12 lg:p-14">
-          <div className="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_auto] lg:gap-8">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:py-20 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-card p-8 shadow-lg sm:p-12 lg:p-14">
+
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto]">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-                Got something to sell? Your first 3 sales are on us.
+              <h2 className="text-2xl font-bold sm:text-3xl lg:text-4xl">
+                Got something to sell?
               </h2>
-              <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 sm:text-base">
-                List in minutes. Reach thousands of FUTO students. Subscribe only after you've proven it works.
+              <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+                List in minutes. Reach thousands of FUTO students.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" variant="default" className="bg-background text-primary hover:bg-background/90 sm:h-14 sm:px-10 sm:text-base" asChild>
+
+            <div className="flex gap-3">
+              <Button asChild>
                 <Link to="/sell">Start selling</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground sm:h-14 sm:px-10 sm:text-base" asChild>
+              <Button variant="outline" asChild>
                 <Link to="/pricing">View plans</Link>
               </Button>
             </div>
           </div>
+
         </div>
       </section>
 

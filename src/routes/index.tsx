@@ -24,30 +24,30 @@ function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-soft">
         <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:py-24 lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-24 lg:px-8">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-3 py-1 text-[11px] font-semibold text-primary backdrop-blur sm:text-xs">
               <ShieldCheck className="h-3.5 w-3.5" /> Verified FUTO students only
             </span>
-            <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-5xl lg:text-6xl">
               The smart way FUTO students{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">buy & sell</span> on campus.
             </h1>
-            <p className="mt-5 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
+            <p className="mt-4 max-w-xl text-pretty text-sm text-muted-foreground sm:mt-5 sm:text-base lg:text-lg">
               Skip the noisy WhatsApp groups. Find books, gadgets, hostel essentials and more — from
               verified students you can trust.
             </p>
 
             {/* Search */}
-            <div className="mt-7 flex max-w-xl items-center gap-2 rounded-2xl border border-border bg-card p-2 shadow-card">
+            <div className="mt-6 flex max-w-xl flex-col gap-2 rounded-2xl border border-border bg-card p-2 shadow-card sm:mt-7 sm:flex-row sm:items-center">
               <div className="flex flex-1 items-center gap-2 px-3">
-                <Search className="h-5 w-5 text-muted-foreground" />
+                <Search className="h-5 w-5 shrink-0 text-muted-foreground" />
                 <input
-                  placeholder="Search textbooks, laptops, hostel items…"
-                  className="h-11 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                  placeholder="Search textbooks, laptops…"
+                  className="h-11 w-full min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
                 />
               </div>
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
                 <Link to="/browse">Search</Link>
               </Button>
             </div>

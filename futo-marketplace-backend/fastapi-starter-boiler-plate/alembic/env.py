@@ -16,9 +16,18 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from models import orm_model
-target_metadata = orm_model.Base.metadata
-#target_metadata = None
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from app.db.database import Base
+from app.models import orm_models  # noqa — needed so Alembic sees the models
+from app.core.config import settings
+
+# replace the config section
+config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
+
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

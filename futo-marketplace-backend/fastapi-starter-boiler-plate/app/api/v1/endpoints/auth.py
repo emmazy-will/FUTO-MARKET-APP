@@ -144,27 +144,26 @@ def login(payload: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(
     user.refresh_token = refresh_token
     db.commit()
 
-    # return success(
-    #     data={
-    #         "access_token": access_token,
-    #         "refresh_token": refresh_token,
-    #         "token_type": "bearer",
-    #         "user": {
-    #             "id": user.id,
-    #             "email": user.email,
-    #             "name": user.name,
-    #             "username": user.username,
-    #             "role": user.role,
-    #             "is_verified": user.is_verified,
-    #             "subscription_status": user.subscription_status,
-    #             "profile_photo": user.profile_photo,
-    #         }
-    #     },
-    #     message="Login successful"
-    # )
+
     return {
     "access_token": access_token,
-    "token_type": "bearer"
+    "refresh_token": refresh_token,
+    "token_type": "bearer",
+    "success": True,
+    "message": "Login successful",
+    "data": {
+        "user": {
+            "id": user.id,
+            "email": user.email,
+            "name": user.name,
+            "username": user.username,
+            "role": user.role,
+            "is_verified": user.is_verified,
+            "subscription_status": user.subscription_status,
+            "profile_photo": user.profile_photo,
+            "matric_number": user.matric_number,
+        }
+    }
 }
     
     

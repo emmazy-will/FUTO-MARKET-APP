@@ -86,3 +86,57 @@ class LoginResponse(BaseModel):
     refresh_token: str
     token_type: str = "bearer"
     user: UserResponse
+    
+
+# ── Items schemas ─────────────────────────────────────────────────────────────
+
+from app.models.orm_models import ItemCategory, ItemCondition, ItemStatus
+
+class CreateItemRequest(BaseModel):
+    title: str = Field(min_length=3, max_length=255, example="Dell Latitude Laptop")
+    description: Optional[str] = Field(None, example="Good condition, 8GB RAM")
+    price: float = Field(gt=0, example=45000.00)
+    category: ItemCategory = Field(example="electronics")
+    condition: ItemCondition = Field(example="fairly_used")
+    location: Optional[str] = Field(None, example="Hostel A, Block 3")
+
+
+class UpdateItemRequest(BaseModel):
+    title: Optional[str] = Field(None, min_length=3, max_length=255)
+    description: Optional[str] = None
+    price: Optional[float] = Field(None, gt=0)
+    category: Optional[ItemCategory] = None
+    condition: Optional[ItemCondition] = None
+    location: Optional[str] = None
+    status: Optional[ItemStatus] = None
+
+
+class ItemSellerResponse(BaseModel):
+    id: int
+    name: str
+    username: Optional[str]
+    profile_photo: Optional[str]
+    rating_avg: Optional[float] = None
+
+    class Config:
+        from_attributes = True
+
+
+class ItemResponse(BaseModel):
+    id: int
+    seller_id: int
+    title: str
+    description: Optional[str]
+    price: float
+    category: str
+    condition: str
+    status: str
+    images: Optional[str]       # JSON string of URLs
+    location: Optional[str]
+    is_boosted: bool
+    view_count: int
+    created_at: Optional[datetime]
+    seller: Optional[ItemSellerResponse] = None
+
+    class Config:
+        from_attributes = True

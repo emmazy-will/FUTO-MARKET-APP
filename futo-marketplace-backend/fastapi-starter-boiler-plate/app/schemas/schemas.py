@@ -140,3 +140,86 @@ class ItemResponse(BaseModel):
 
     class Config:
         from_attributes = True
+        
+    
+    # ── Order schemas ─────────────────────────────────────────────────────────────
+from app.models.orm_models import OrderStatus
+
+class OrderCreateRequest(BaseModel):
+    item_id: int = Field(example=1)
+    note: Optional[str] = Field(None, example="Please hold for me, I'll pick up tomorrow")
+
+
+class DisputeRequest(BaseModel):
+    reason: str = Field(min_length=10, example="Seller is not responding after accepting the order")
+
+
+class OrderResponse(BaseModel):
+    id: int
+    buyer_id: int
+    seller_id: int
+    item_id: int
+    status: OrderStatus
+    note: Optional[str]
+    created_at: Optional[datetime]
+    completed_at: Optional[datetime]
+
+    class Config:
+        from_attributes = True
+        
+        
+        
+        
+# ── Favorites schemas ─────────────────────────────────────────────────────────
+
+class FavoriteResponse(BaseModel):
+    id: int
+    user_id: int
+    item_id: int
+    created_at: Optional[datetime]
+
+    class Config:
+        from_attributes = True
+        
+    
+    
+# ── Chat schemas ──────────────────────────────────────────────────────────────
+
+class ConversationCreateRequest(BaseModel):
+    item_id: int = Field(example=1)
+    seller_id: int = Field(example=2)
+
+
+class MessageCreateRequest(BaseModel):
+    conversation_id: int = Field(example=1)
+    content: str = Field(min_length=1, example="Is this still available?")
+    message_type: Optional[str] = Field(default="text", example="text")
+    
+    
+
+# ── Ratings ───────────────────────────────────────────────────────────────────
+
+class RatingCreateRequest(BaseModel):
+    order_id: int = Field(example=1)
+    score: int = Field(ge=1, le=5, example=5)
+    comment: Optional[str] = Field(None, example="Great seller, fast response!")
+
+
+# ── Subscriptions ─────────────────────────────────────────────────────────────
+
+class SubscribeRequest(BaseModel):
+    plan: str = Field(example="basic")  # basic | premium
+
+
+# ── Admin ─────────────────────────────────────────────────────────────────────
+
+class BanUserRequest(BaseModel):
+    reason: str = Field(min_length=5, example="Repeated fraudulent listings")
+
+
+class AssignRoleRequest(BaseModel):
+    role: str = Field(example="moderator")  # buyer | seller | moderator | admin
+
+
+class ResolveDisputeRequest(BaseModel):
+    resolution: str = Field(min_length=10, example="Refund issued to buyer. Seller warned.")

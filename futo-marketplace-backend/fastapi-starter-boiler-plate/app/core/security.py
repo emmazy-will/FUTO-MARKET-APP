@@ -10,11 +10,11 @@ password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def hash_password(password: str) -> str:
-    return password_context.hash(password)
+    return password_context.hash(password[:72])
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return password_context.verify(plain, hashed)
+    return password_context.verify(plain[:72], hashed)
 
 
 def create_access_token(data: dict) -> str:

@@ -1,11 +1,13 @@
 from pydantic_settings import BaseSettings
+from typing import Optional
+
 
 class Settings(BaseSettings):
     APP_ENV: str = "development"
-    SECRET_KEY: str
+    SECRET_KEY: str = "test-secret-key-for-testing-only-change-in-production"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
-    DATABASE_URL: str
+    DATABASE_URL: str = "mysql+pymysql://root:@localhost:3306/futo_marketplace"
     REDIS_URL: str = "redis://localhost:6379"
     CLOUDINARY_CLOUD_NAME: str = ""
     CLOUDINARY_API_KEY: str = ""
@@ -22,5 +24,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
+
 
 settings = Settings()
